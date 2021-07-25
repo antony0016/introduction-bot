@@ -45,7 +45,7 @@ func GetTemplateByOption(command string) (string, linebot.Template) {
 			"機車行客戶管理系統", "點擊下方\"打開Demo\"可以連結到Demo網站試用",
 			linebot.NewURIAction("打開Demo", "https://demo.matsuno-seki.com"),
 		)
-		line := linebot.NewCarouselColumn("https://i.imgur.com/Mx9UIys.jpg",
+		line := linebot.NewCarouselColumn("https://i.imgur.com/iFjrUKAl.png?1",
 			"自我介紹 line bot", "點擊下方\"前往 Github\" 可以在 Github 查看完整程式碼",
 			linebot.NewURIAction("前往 Github", "https://github.com/antony0016/introduction-bot"),
 		)
