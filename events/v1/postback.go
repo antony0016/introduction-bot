@@ -45,6 +45,10 @@ func GetTemplateByOption(command string) (string, linebot.Template) {
 			"機車行客戶管理系統", "點擊下方\"打開Demo\"可以連結到Demo網站試用",
 			linebot.NewURIAction("打開Demo", "https://demo.matsuno-seki.com"),
 		)
+		line := linebot.NewCarouselColumn("https://i.imgur.com/iFjrUKA.png",
+			"自我介紹 line bot", "點擊下方\"前往 Github\" 可以在 Github 查看完整程式碼",
+			linebot.NewURIAction("前往 Github", "https://github.com/antony0016/introduction-bot"),
+		)
 		aacsb := linebot.NewCarouselColumn("https://i.imgur.com/455BMyYm.png",
 			"AACSB教授評分系統", "讀取 excel 教授資料，以程式自動化評分並寫入資料庫，大幅減少人力及時間支出。",
 			homeAction,
@@ -65,7 +69,7 @@ func GetTemplateByOption(command string) (string, linebot.Template) {
 			"JLPT N2", "我很喜歡動漫及日本文化，花了很多時間看動漫，所以也花了點時間準備JLPT並拿到證照了!",
 			linebot.NewURIAction("我要看證照!", "https://i.imgur.com/A3yWLMI.jpg"),
 		)
-		template = linebot.NewCarouselTemplate(swSystem, aacsb, amazon, swSystemDemo, blog, medium, jlpt)
+		template = linebot.NewCarouselTemplate(swSystem, aacsb, line, amazon, swSystemDemo, blog, medium, jlpt)
 	case command == "menu":
 		altText = "選單"
 		introductionText := "歡迎來到我的自我介紹，可以點擊下面的各個選項，選擇你想看的部分喔!"
