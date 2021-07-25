@@ -7,7 +7,6 @@ This line bot will show you all of my projects and skills, if you are interested
 ---
 
 ### Setup
-
 1. rename **sample.env** to **.env**
 2. fill all environment variables in .env file
 3. build code to docker image

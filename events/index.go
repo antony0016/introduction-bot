@@ -13,7 +13,7 @@ func GetMessageByEvent(bot *linebot.Client, event *linebot.Event) *linebot.Templ
 	switch event.Type {
 	case linebot.EventTypeMessage:
 		fmt.Println("received message")
-		introductionText := "看看這邊有沒有你的想看的吧!沒有的話"
+		introductionText := "看看下面的選項或是直接點進我的完整版履歷瞭解我吧!"
 		altText = "歡迎來到我的自我介紹!"
 		template = v1.IndexTemplate("https://i.imgur.com/MrnL75e.jpg", "歡迎來到我的自我介紹", introductionText)
 		message = linebot.NewTemplateMessage(altText, template)
