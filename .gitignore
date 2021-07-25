@@ -14,6 +14,11 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+.idea
 
 # environment files
 *.env
+
+# for test
+ngrok.exe
+

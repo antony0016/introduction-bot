@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	myEvent "github.com/antony0016/introduction-bot/events"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/line/line-bot-sdk-go/v7/linebot"
 	"log"
@@ -19,7 +20,8 @@ func main() {
 	}
 	http.HandleFunc("/callback", callbackHandler)
 	port := os.Getenv("PORT")
-	addr := fmt.Sprintf(":%s", port)
+	addr := fmt.Sprintf("0.0.0.0:%s", port)
+	fmt.Println("Starting server...")
 	err = http.ListenAndServe(addr, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -36,10 +38,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
+
 	for _, event := range events {
 		replyToken := event.ReplyToken
-		var message *linebot.TemplateMessage
-		message = events.GetMessageByEvent(event)
-		_, err = bot.ReplyMessage(replyToken, message).Do()
+		message := myEvent.GetMessageByEvent(bot, event)
+		if _, err = bot.ReplyMessage(replyToken, message).Do(); err != nil {
+			log.Println(err)
+		}
+
 	}
 }
